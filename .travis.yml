@@ -5,9 +5,11 @@ jobs:
   include:
     - stage: "on PR"
       if: branch='master' AND head_branch!='master'
+      name: "on pr"
       script: 
         - echo "on PR"
     - stage: "on master"
       if: branch='master' AND head_branch='master'
+      name: "on master"
       script:
         - echo "on master"

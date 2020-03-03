@@ -4,10 +4,10 @@ language: java
 jobs:
   include:
     - stage: "on PR"
-      if: env(TRAVIS_PULL_REQUEST_BRANCH)!=''
+      if: branch='master' AND head_branch!='master'
       script: 
-        - echo "${TRAVIS_PULL_REQUEST_BRANCH} on PR"
+        - echo "on PR"
     - stage: "on master"
-      if: env(TRAVIS_PULL_REQUEST_BRANCH)=''
+      if: branch='master' AND head_branch='master'
       script:
-        - echo "${TRAVIS_PULL_REQUEST_BRANCH} on master"
+        - echo "on master"

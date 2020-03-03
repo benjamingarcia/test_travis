@@ -1,4 +1,13 @@
 language: java
 
-script: 
-  - echo "${TRAVIS_PULL_REQUEST_BRANCH}"
+
+jobs:
+  includes:
+    - stage: "on PR"
+      if: env(TRAVIS_PULL_REQUEST_BRANCH)!=''
+      script: 
+        - echo "${TRAVIS_PULL_REQUEST_BRANCH}"
+    - stage: "on master"
+      if: env(TRAVIS_PULL_REQUEST_BRANCH)=''
+      script:
+        - echo "${TRAVIS_PULL_REQUEST_BRANCH}"

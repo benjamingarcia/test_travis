@@ -4,12 +4,12 @@ language: java
 jobs:
   include:
     - stage: "on PR"
-      if: type = pull_request
+      if: NOT type = cron AND type = pull_request
       name: "on pr"
       script: 
         - echo "on PR"
     - stage: "on master"
-      if: NOT type = pull_request
+      if: NOT type = cron AND NOT type = pull_request
       name: "on master"
       script:
         - echo "on master"

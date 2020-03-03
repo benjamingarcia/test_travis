@@ -6,8 +6,8 @@ jobs:
     - stage: "on PR"
       if: env(TRAVIS_PULL_REQUEST_BRANCH)!=''
       script: 
-        - echo "${TRAVIS_PULL_REQUEST_BRANCH}"
+        - echo "${TRAVIS_PULL_REQUEST_BRANCH} on PR"
     - stage: "on master"
       if: env(TRAVIS_PULL_REQUEST_BRANCH)=''
       script:
-        - echo "${TRAVIS_PULL_REQUEST_BRANCH}"
+        - echo "${TRAVIS_PULL_REQUEST_BRANCH} on master"
